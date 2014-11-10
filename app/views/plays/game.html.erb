@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 text-center">
+      <h1>Welcome to the longest word-game !</h1>
+
+      <% if @grid.nil? %>
+        <h2>How Many Letters in your Grid ?</h2>
+          <form action="/game" method="post" class="form-inline">
+            <div class="form-group">
+              <input type="text" class="form-control" name="grid_size" autofocus>
+              <input type="submit" class="btn btn-default">
+            <div>
+          </form>
+
+      <%else %>
+        <h2>Here is your grid :</h2>
+        <ul>
+          <% @grid.each do |letter|  %>
+            <li class="letter"><%= letter %></li>
+          <% end %>
+        </ul>
+        <h2>What's your best shot ?</h2>
+        <form action="/score" method="post" class="form-inline">
+          <div class="form-group">
+            <input type="text" class="form-control" name="attempt" autofocus>
+            <input type="hidden" name="start_time" value="<%= @start_time %>">
+            <input type="hidden" name="grid" value="<%= @grid.join(",") %>">
+            <input type="submit" class="btn btn-default">
+          <div>
+        </form>
+      <% end %>
+
+    </div>
+  </div>
+</div>

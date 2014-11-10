@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 text-center">
+      <h1>Now your result !</h1>
+
+        <h2>Your Word is : <%= @attempt %></h2>
+        <h3><%= @result[:message] %></h3>
+        <p>Time Taken to answer: <%= @result[:time] %> sec.</p>
+        <p>Translation: <%= @result[:translation] %></p>
+        <p>Your score: <%= @result[:score] %></p>
+
+        <span class="play-again btn btn-default"><%= link_to "Play Again !", game_path %></span>
+
+    </div>
+  </div>
+</div>
